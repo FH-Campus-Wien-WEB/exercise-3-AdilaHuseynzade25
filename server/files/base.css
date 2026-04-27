@@ -1,7 +1,8 @@
 body {
+  margin: 0;
   font-family: "Trebuchet MS", sans-serif;
-  background-color: brown;
-  color: beige;
+  background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%) no-repeat fixed;
+  color: #2f2235;
 }
 
 main {
@@ -9,12 +10,16 @@ main {
 }
 
 button {
-    padding: 4px;
-    border-width: 1px;
-    border-radius: 4px;
-    font-size: 105%;
+    padding: 6px 12px;
+  border: 2px solid #000;
+  border-radius: 10px;
+  font-size: 105%;
+  font-family: inherit;
+  background-color: #f079be;
+  color: #000;
+  cursor: pointer;
 }
 
 button:hover {
-  background-color: darkgray;
+  background-color: #f5a8d3;
 }

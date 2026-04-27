@@ -1,13 +1,14 @@
 @import url(base.css);
 
 h1 {
-  font-size: 200%;
-  margin: 8px 0px;
+  font-size: 250%;
+  margin: 10px 5px;
 }
 
 /* Constrain the page to the viewport */
 html, body {
   height: 100vh;
+  margin: 0;
 }
 
 /* Center the nav's header and list */
@@ -30,34 +31,140 @@ ul {
 }
 
 /* Task 2.1. Lay out the childs of the 'body' using Grid Template Areas. */
+body {
+  margin: 0;
+  font-family: 'Trebuchet MS', sans-serif;
+  background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%) no-repeat fixed;
+  min-height: 100vh;
 
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto 1fr auto;
+  grid-template-areas:
+    "h"
+    "n"
+    "m"
+    "f";
+}
+
+header {
+  grid-area: h;
+}
+
+nav {
+  grid-area: n;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+nav button {
+  width: 100%;
+}
+
+ul {
+  padding: 0px;
+  margin: 16px;
+  list-style-type: none;
+}
+
+main {
+  grid-area: m;
+  overflow-y: auto;
+}
+
+footer {
+  grid-area: f;
+}
+
+/* Desktop layout */
+@media (min-width: 900px) {
+  html, body {
+    height: 100vh;
+  }
+
+  body {
+    grid-template-columns: minmax(192px, 256px) 1fr;
+    grid-template-rows: minmax(64px, 128px) minmax(0, 1fr) minmax(64px, 128px);
+    grid-template-areas:
+      "h h"
+      "n m"
+      "f f";
+  }
+
+  main {
+  min-height: 0;
+  overflow-y: scroll;
+  scrollbar-gutter: stable;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  align-content: flex-start;
+  justify-content: flex-start;
+  width: 816px;
+  justify-self: start;
+  padding: 0;
+  box-sizing: border-box;
+}
+}
 
 /* Task 3.1. Make the header element a flex container and center its children
    vertically and horizontally.
  */
-
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 /* Task 3.2. Make the list items of the unordered list in the nav element a flex container, 
    use column direction and center the child items
  */
+nav ul li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 4px;
+}
 
 /* Task 3.3. Make the main element a Flexbox container */
-
+main {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-content: flex-start;
+}
 
 /* Task 3.4. Make the footer's ul a Flexbox container */
-
+footer ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
 
 /* From here on styling from exercise 1 */
 img {
-  border-radius: 12px;
+  border-radius: 1px;
 }
 
 article {
-  background-color: lightgray;
-  border-radius: 16px;
-  padding: 16px;
+  background-color: #f7e4ef;
+  border-radius: 20px;
+  padding: 20px;
   width: 384px;
-  margin: 8px;
+  margin: 0;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  box-sizing: border-box;
+  flex: 0 0 384px;
+}
+
+article img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 15px;
 }
 
 a {
@@ -65,13 +172,13 @@ a {
 }
 
 span {
-  margin-right: 4px;
+  margin-right: 10px;
 }
 
 .genre {
-  padding: 4px 8px;
-  border: solid black 1px;
-  border-radius: 6px;
-  background-color: darkgray;
+  padding: 5px 10px;
+  border: 2px solid #000;
+  border-radius: 10px;
+  background-color: f079be;
   font-weight: bold;
 }
